@@ -1,7 +1,3 @@
-// import menu from './js/menu.json';
-// // const menuJson = JSON.parse(menu);
-// module.export = menu;
-
 const refs = {
   selectTheme: document.querySelector('#theme-switch-toggle'),
   body: document.querySelector('body'),
