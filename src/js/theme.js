@@ -1,5 +1,5 @@
 const refs = {
-  selectTheme: document.querySelector('#theme-switch-toggle'),
+  switchTheme: document.querySelector('#theme-switch-toggle'),
   body: document.querySelector('body'),
 };
 
@@ -14,7 +14,7 @@ const changeTheme = theme => {
   if (theme === Theme.DARK) {
     refs.body.classList.toggle(Theme.DARK);
     refs.body.classList.add(Theme.DARK);
-    refs.selectTheme.checked = true;
+    refs.switchTheme.checked = true;
   } else {
     refs.body.classList.add(Theme.LIGHT);
     refs.body.classList.remove(Theme.DARK);
@@ -24,10 +24,10 @@ const changeTheme = theme => {
 
 changeTheme(localStorage.getItem(STORAGE_KEY));
 
-function onchangeThemeClick() {
+const switchClick = () => {
   const newTheme = refs.selectTheme.checked ? Theme.DARK : Theme.LIGHT;
   localStorage.setItem(STORAGE_KEY, newTheme);
   changeTheme(newTheme);
-}
+};
 
-refs.selectTheme.addEventListener('change', onchangeThemeClick);
+refs.switchTheme.addEventListener('change', switchClick);
