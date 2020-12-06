@@ -12,7 +12,7 @@ const STORAGE_KEY = 'theme';
 
 const changeTheme = theme => {
   if (theme === Theme.DARK) {
-    refs.body.classList.toggle(Theme.DARK);
+    refs.body.classList.remove(Theme.L);
     refs.body.classList.add(Theme.DARK);
     refs.switchTheme.checked = true;
   } else {
@@ -25,7 +25,7 @@ const changeTheme = theme => {
 changeTheme(localStorage.getItem(STORAGE_KEY));
 
 const switchClick = () => {
-  const newTheme = refs.selectTheme.checked ? Theme.DARK : Theme.LIGHT;
+  const newTheme = refs.switchTheme.checked ? Theme.DARK : Theme.LIGHT;
   localStorage.setItem(STORAGE_KEY, newTheme);
   changeTheme(newTheme);
 };
